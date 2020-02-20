@@ -7,6 +7,7 @@ public class Yahtzee {
 
     public static void main(String[] args) {
         Scanner keyboard = new Scanner(System.in);
+        System.out.println("Welcome to the game of Yahtzee!");
         rollDice();
 
         for (int i = 0; i < NUM_REROLLS; i++) {
