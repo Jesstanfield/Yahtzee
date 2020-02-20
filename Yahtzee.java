@@ -15,7 +15,7 @@ public class Yahtzee {
       }
       System.out.println(diceToString());
       System.out.print("Which dice do you want to reroll: ");
-      rollDice(convert(keyboard.nextLine()));)
+      rollDice(convert(keyboard.nextLine()));
     }
     System.out.println(diceToString());
     if (isYahtzee()) {
