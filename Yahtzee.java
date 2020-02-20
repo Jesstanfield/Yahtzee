@@ -15,7 +15,7 @@ public class Yahtzee {
       }
       System.out.println(diceToString());
       System.out.print("Which dice do you want to reroll: ");
-      rollDice(convert(keyboard.nextLine()));)
+      rollDice(convert(keyboard.nextLine()));
     }
     System.out.println(diceToString());
     if (isYahtzee()) {
@@ -24,19 +24,23 @@ public class Yahtzee {
       System.out.println("Sorry, better luck next time!");
     }
   }
+
   public static void rollDice(int[] diceToChange) {
     for (int i : diceToChange) {
       dice[i-1] = getRandomDieValue();
     }
   }
+
   public static void rollDice() {
     for (int i = 0; i < NUMBER_OF_DICE; i++) {
       dice[i] = getRandomDieValue();
     }
   }
+
   public static int getRandomDieValue() {
     return (int) (Math.random() * 6 + 1);
   }
+
   public static int[] convert(String s) {
     StringTokenizer st = new StringTokenizer(s);
     int[] a = new int[st.countTokens()];
@@ -47,6 +51,7 @@ public class Yahtzee {
     }
     return a;
   }
+
   public static boolean isYahtzee() {
     for (int el : dice) {
       if (el != dice[0]) {
@@ -55,6 +60,7 @@ public class Yahtzee {
     }
     return true;
   }
+
   public static String diceToString() {
     String result = "Your dice are: ";
     for (int el : dice) {
