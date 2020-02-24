@@ -27,7 +27,7 @@ public class Yahtzee {
         } else if (isSmallStraight == true) {
 
         } else if (isLargeStraight == true) {
-            
+
         }
         System.out.println(diceToString());
         if (isYahtzee()) {
@@ -97,21 +97,23 @@ public class Yahtzee {
     }
 
     public static boolean isThreeOfAKind() {
-      for (i = 0; i < sortedDice.length - 1; i++;) {
+        for (i = 0; i < sortedDice.length - 1; i++;) {
         if(sortedDice[i-1] == sortedDice[i] && sortedDice[i] == sortedDice[i+1]) {
-          return true;
+            System.out.println("It is three of a kind");
+            return true;
         }
-      }
-      return false;
+    }
+    return false;
     }
 
     public static boolean isFourOfAKind() {
-      for (i = 0; i < sortedDice.length - 1; i++;) {
+        for (i = 0; i < sortedDice.length - 1; i++;) {
         if(sortedDice[i-1] == sortedDice[i] && sortedDice[i] == sortedDice[i+1] && sortedDice[i+1] == sortedDice[i+2]) {
-          return true;
+            System.out.println("It is four of a kind");
+            return true;
         }
-      }
-      return false;
+    }
+    return false;
     }
 
     public static boolean isFullHouse() {
