@@ -68,13 +68,7 @@ public class Yahtzee {
         }
         return result;
     }
-/*
-    public static boolean isThreeOfAKind() {
-        for (int el : dice) {
 
-        }
-    }
-*/
     public static int[] bubbleSort(int[] diceToSort) {
         int n = diceToSort.length;
         int tempDice = 0;
@@ -88,5 +82,27 @@ public class Yahtzee {
             }
         }
         return diceToSort;
+    }
+
+    public static boolean isthreeOfAKind() {
+      for (i = 0; i < sortedDice.length; i++;) {
+
+      }
+    }
+
+    public static boolean isfourOfAKind() {
+
+    }
+
+    public static boolean isFullHouse() {
+
+    }
+
+    public static boolean isSmallStraight() {
+
+    }
+
+    public static boolean isLargeStraight() {
+
     }
 }
