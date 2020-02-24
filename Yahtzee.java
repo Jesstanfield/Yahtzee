@@ -27,7 +27,7 @@ public class Yahtzee {
         } else if (isSmallStraight == true) {
 
         } else if (isLargeStraight == true) {
-            
+
         }
         System.out.println(diceToString());
         if (isYahtzee()) {
@@ -128,7 +128,7 @@ public class Yahtzee {
 
     public static boolean isLargeStraight() {
       for (i = 0; i < sortedDice.length - 1; i++;) {
-        
+
       }
     }
 }
