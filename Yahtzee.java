@@ -116,7 +116,7 @@ public class Yahtzee {
 
     public static boolean isLargeStraight() {
       for (i = 0; i < sortedDice.length - 1; i++;) {
-
+        
       }
     }
 }
