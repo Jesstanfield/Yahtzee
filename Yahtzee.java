@@ -85,24 +85,32 @@ public class Yahtzee {
     }
 
     public static boolean isthreeOfAKind() {
-      for (i = 0; i < sortedDice.length; i++;) {
+      for (i = 0; i < sortedDice.length - 1; i++;) {
 
       }
     }
 
     public static boolean isfourOfAKind() {
+      for (i = 0; i < sortedDice.length - 1; i++;) {
 
+      }
     }
 
     public static boolean isFullHouse() {
+      for (i = 0; i < sortedDice.length - 1; i++;) {
 
+      }
     }
 
     public static boolean isSmallStraight() {
+      for (i = 0; i < sortedDice.length - 1; i++;) {
 
+      }
     }
 
     public static boolean isLargeStraight() {
+      for (i = 0; i < sortedDice.length - 1; i++;) {
 
+      }
     }
 }
