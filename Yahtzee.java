@@ -9,7 +9,6 @@ public class Yahtzee {
         Scanner keyboard = new Scanner(System.in);
         System.out.println("Welcome to the game of Yahtzee!");
         rollDice();
-
         for (int i = 0; i < NUM_REROLLS; i++) {
             if (isYahtzee()) {
                 break;
@@ -68,5 +67,26 @@ public class Yahtzee {
             result += el + " ";
         }
         return result;
+    }
+/*
+    public static boolean isThreeOfAKind() {
+        for (int el : dice) {
+
+        }
+    }
+*/
+    public static int[] bubbleSort(int[] diceToSort) {
+        int n = diceToSort.length;
+        int tempDice = 0;
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < (n - i - 1); j++) {
+                if (diceToSort[j] > diceToSort[j + 1]) {
+                    tempDice = diceToSort[j];
+                    diceToSort[j] = diceToSort[j + 1];
+                    diceToSort[j + 1] = tempDice;
+                }
+            }
+        }
+        return diceToSort;
     }
 }
