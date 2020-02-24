@@ -86,14 +86,20 @@ public class Yahtzee {
 
     public static boolean isthreeOfAKind() {
       for (i = 0; i < sortedDice.length - 1; i++;) {
-
+        if(sortedDice[i-1] == sortedDice[i] && sortedDice[i] == sortedDice[i+1]) {
+          return true;
+        }
       }
+      return false;
     }
 
     public static boolean isfourOfAKind() {
       for (i = 0; i < sortedDice.length - 1; i++;) {
-
+        if(sortedDice[i-1] == sortedDice[i] && sortedDice[i] == sortedDice[i+1] && sortedDice[i+1] == sortedDice[i+2]) {
+          return true;
+        }
       }
+      return false;
     }
 
     public static boolean isFullHouse() {
