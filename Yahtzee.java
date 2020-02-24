@@ -17,6 +17,18 @@ public class Yahtzee {
             System.out.print("Which dice do you want to reroll: ");
             rollDice(convert(keyboard.nextLine()));
         }
+        dice = bubbleSort(dice);
+        if (isThreeOfAKind == true) {
+
+        } else if (isFourOfAKind == true) {
+
+        } else if (isFullHouse == true) {
+
+        } else if (isSmallStraight == true) {
+
+        } else if (isLargeStraight == true) {
+            
+        }
         System.out.println(diceToString());
         if (isYahtzee()) {
             System.out.println("You got Yahtzee!");
@@ -84,7 +96,7 @@ public class Yahtzee {
         return diceToSort;
     }
 
-    public static boolean isthreeOfAKind() {
+    public static boolean isThreeOfAKind() {
       for (i = 0; i < sortedDice.length - 1; i++;) {
         if(sortedDice[i-1] == sortedDice[i] && sortedDice[i] == sortedDice[i+1]) {
           return true;
@@ -93,7 +105,7 @@ public class Yahtzee {
       return false;
     }
 
-    public static boolean isfourOfAKind() {
+    public static boolean isFourOfAKind() {
       for (i = 0; i < sortedDice.length - 1; i++;) {
         if(sortedDice[i-1] == sortedDice[i] && sortedDice[i] == sortedDice[i+1] && sortedDice[i+1] == sortedDice[i+2]) {
           return true;
