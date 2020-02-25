@@ -97,8 +97,8 @@ public class Yahtzee {
     }
 
     public static boolean isThreeOfAKind() {
-        for (i = 0; i < sortedDice.length - 1; i++;) {
-        if(sortedDice[i-1] == sortedDice[i] && sortedDice[i] == sortedDice[i+1]) {
+        for (i = 0; i < dice.length - 1; i++;) {
+        if(dice[i-1] == dice[i] && dice[i] == dice[i+1]) {
             System.out.println("It is three of a kind");
             return true;
         }
@@ -107,8 +107,8 @@ public class Yahtzee {
     }
 
     public static boolean isFourOfAKind() {
-        for (i = 0; i < sortedDice.length - 1; i++;) {
-        if(sortedDice[i-1] == sortedDice[i] && sortedDice[i] == sortedDice[i+1] && sortedDice[i+1] == sortedDice[i+2]) {
+        for (i = 0; i < dice.length - 1; i++;) {
+        if(dice[i-1] == dice[i] && dice[i] == dice[i+1] && dice[i+1] == dice[i+2]) {
             System.out.println("It is four of a kind");
             return true;
         }
@@ -117,19 +117,19 @@ public class Yahtzee {
     }
 
     public static boolean isFullHouse() {
-      for (i = 0; i < sortedDice.length - 1; i++;) {
+      for (i = 0; i < dice.length - 1; i++;) {
 
       }
     }
 
     public static boolean isSmallStraight() {
-      for (i = 0; i < sortedDice.length - 1; i++;) {
-
+      for (i = 0; i < dice.length - 1; i++;) {
+          
       }
     }
 
     public static boolean isLargeStraight() {
-      for (i = 0; i < sortedDice.length - 1; i++;) {
+      for (i = 0; i < dice.length - 1; i++;) {
 
       }
     }
