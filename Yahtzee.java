@@ -97,8 +97,8 @@ public class Yahtzee {
     }
 
     public static boolean isThreeOfAKind() {
-        for (i = 0; i < sortedDice.length - 1; i++;) {
-        if(sortedDice[i-1] == sortedDice[i] && sortedDice[i] == sortedDice[i+1]) {
+        for (i = 0; i < dice.length - 1; i++;) {
+        if(dice[i-1] == dice[i] && dice[i] == dice[i+1]) {
             System.out.println("It is three of a kind");
             return true;
         }
@@ -107,8 +107,8 @@ public class Yahtzee {
     }
 
     public static boolean isFourOfAKind() {
-        for (i = 0; i < sortedDice.length - 1; i++;) {
-        if(sortedDice[i-1] == sortedDice[i] && sortedDice[i] == sortedDice[i+1] && sortedDice[i+1] == sortedDice[i+2]) {
+        for (i = 0; i < dice.length - 1; i++;) {
+        if(dice[i-1] == dice[i] && dice[i] == dice[i+1] && dice[i+1] == dice[i+2]) {
             System.out.println("It is four of a kind");
             return true;
         }
@@ -117,6 +117,7 @@ public class Yahtzee {
     }
 
     public static boolean isFullHouse() {
+<<<<<<< HEAD
         if (dice[0] == dice[1] && dice[2] == dice[3] == dice[4]) {
             return true;
         } else if (dice[0] == dice[1] == dice[2] && dice[3] == dice[4]) {
@@ -124,20 +125,31 @@ public class Yahtzee {
         } else {
             return false;
         }
+=======
+      for (i = 0; i < dice.length - 1; i++;) {
+
+      }
+>>>>>>> 6f87fb0442b03f3ede7013dd72132d48ff7e7b16
     }
 
     public static boolean isSmallStraight() {
-      for (i = 0; i < sortedDice.length - 1; i++;) {
-
+      for (i = 0; i < dice.length - 1; i++;) {
+          
       }
     }
 
     public static boolean isLargeStraight() {
+<<<<<<< HEAD
         for (i = 0; i < sortedDice.length - 1; i++;) {
             if (dice[i] != dice[i + 1] - 1) {
                 return false;
             }
         }
         return true;
+=======
+      for (i = 0; i < dice.length - 1; i++;) {
+
+      }
+>>>>>>> 6f87fb0442b03f3ede7013dd72132d48ff7e7b16
     }
 }
