@@ -4,7 +4,12 @@ public class Yahtzee {
     static final int NUMBER_OF_DICE = 5;
     static final int NUM_REROLLS = 2;
     static int[] dice = new int[NUMBER_OF_DICE];
-
+    Hashtable <String, Integer> scoreCard = new Hashtable <String, Integer>();
+    scoreCard.put("isThreeOfAKind", 0);
+    scoreCard.put("isFourOfAKind", 0);
+    scoreCard.put("isFullHouse", 0);
+    scoreCard.put("isSmallStraight", 0);
+    scoreCard.put("isLargeStraight", 0);
     public static void main(String[] args) {
         Scanner keyboard = new Scanner(System.in);
         System.out.println("Welcome to the game of Yahtzee!");
