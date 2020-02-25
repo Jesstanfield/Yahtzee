@@ -127,9 +127,20 @@ public class Yahtzee {
     }
 
     public static boolean isSmallStraight() {
-      for (i = 0; i < dice.length - 1; i++;) {
-
+      for (i = 0; i < dice.length - 2; i++;) {
+          if (dice[i] != dice[i + 1] - 1) {
+              boolean bool1 = false;
+          }
       }
+      for (i = 1; i < dice.length - 1; i++;) {
+          if (dice[i] != dice[i + 1] - 1) {
+              boolean bool2 = false;
+          }
+      }
+      if (bool1 and bool2) {
+          return false;
+      }
+      return true;
     }
 
     public static boolean isLargeStraight() {
