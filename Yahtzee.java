@@ -29,16 +29,31 @@ public class Yahtzee {
         dice = bubbleSort(dice);
         if (isYahtzee()) {
 
-        } else if (isLargeStraight()) {
-
-        } else if (isSmallStraight()) {
-
-        } else if (isFullHouse()) {
-
-        } else if (isFourOfAKind()) {
-
-        } else if (isThreeOfAKind()) {
-
+        }
+        if (isLargeStraight()) {
+            if (scoreCard["largeStraight"] == 0) {
+                scoreCard["largeStraight"] = 40;
+            }
+        }
+        if (isSmallStraight()) {
+            if (scoreCard["smallStraight"] == 0) {
+                scoreCard["smallStraight"] = 30;
+            }
+        }
+        if (isFullHouse()) {
+            if (scoreCard["fullHouse"] == 0) {
+                scoreCard["fullHouse"] = 25;
+            }
+        }
+        if (isFourOfAKind()) {
+            if (scoreCard["fourOfAKind"] == 0) {
+                scoreCard["fourOfAKind"] = sumOfDice();
+            }
+        }
+        if (isThreeOfAKind()) {
+            if (scoreCard["fourOfAKind"] == 0) {
+                scoreCard["fourOfAKind"] = sumOfDice();
+            }
         }
         System.out.println(diceToString());
     }
