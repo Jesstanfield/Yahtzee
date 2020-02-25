@@ -99,7 +99,6 @@ public class Yahtzee {
     public static boolean isThreeOfAKind() {
         for (i = 0; i < dice.length - 1; i++;) {
         if(dice[i-1] == dice[i] && dice[i] == dice[i+1]) {
-            System.out.println("It is three of a kind");
             return true;
         }
     }
@@ -109,7 +108,6 @@ public class Yahtzee {
     public static boolean isFourOfAKind() {
         for (i = 0; i < dice.length - 1; i++;) {
         if(dice[i-1] == dice[i] && dice[i] == dice[i+1] && dice[i+1] == dice[i+2]) {
-            System.out.println("It is four of a kind");
             return true;
         }
     }
