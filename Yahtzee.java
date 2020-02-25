@@ -23,15 +23,15 @@ public class Yahtzee {
             rollDice(convert(keyboard.nextLine()));
         }
         dice = bubbleSort(dice);
-        if (isThreeOfAKind == true) {
+        if (isThreeOfAKind()) {
 
-        } else if (isFourOfAKind == true) {
+        } else if (isFourOfAKind()) {
 
-        } else if (isFullHouse == true) {
+        } else if (isFullHouse()) {
 
-        } else if (isSmallStraight == true) {
+        } else if (isSmallStraight()) {
 
-        } else if (isLargeStraight == true) {
+        } else if (isLargeStraight()) {
 
         }
         System.out.println(diceToString());
