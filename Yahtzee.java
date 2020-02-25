@@ -58,6 +58,14 @@ public class Yahtzee {
         System.out.println(diceToString());
     }
 
+    public static int sumOfDice() {
+        int sum = 0;
+        for (int el : dice) {
+            sum += el;
+        }
+        return sum;
+    }
+
     public static void rollDice(int[] diceToChange) {
         for (int i : diceToChange) {
             dice[i-1] = getRandomDieValue();
