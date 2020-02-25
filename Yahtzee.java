@@ -117,9 +117,13 @@ public class Yahtzee {
     }
 
     public static boolean isFullHouse() {
-      for (i = 0; i < sortedDice.length - 1; i++;) {
-
-      }
+        if (dice[0] == dice[1] && dice[2] == dice[3] == dice[4]) {
+            return true;
+        } else if (dice[0] == dice[1] == dice[2] && dice[3] == dice[4]) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public static boolean isSmallStraight() {
@@ -129,8 +133,11 @@ public class Yahtzee {
     }
 
     public static boolean isLargeStraight() {
-      for (i = 0; i < sortedDice.length - 1; i++;) {
-        
-      }
+        for (i = 0; i < sortedDice.length - 1; i++;) {
+            if (dice[i] != dice[i + 1] - 1) {
+                return false;
+            }
+        }
+        return true;
     }
 }
