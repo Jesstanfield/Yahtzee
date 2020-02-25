@@ -19,12 +19,16 @@ public class Yahtzee {
                 break;
             }
             System.out.println(diceToString());
+            System.out.print("Do you want to reroll? (Y/N): ")
+            if (keyboard.nextLine() == "Y") {
+                break;
+            }
             System.out.print("Which dice do you want to reroll: ");
             rollDice(convert(keyboard.nextLine()));
         }
         dice = bubbleSort(dice);
         if (isYahtzee()) {
-            
+
         } else if (isLargeStraight()) {
 
         } else if (isSmallStraight()) {
