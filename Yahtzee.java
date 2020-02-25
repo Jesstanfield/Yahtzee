@@ -23,23 +23,20 @@ public class Yahtzee {
             rollDice(convert(keyboard.nextLine()));
         }
         dice = bubbleSort(dice);
-        if (isThreeOfAKind()) {
-
-        } else if (isFourOfAKind()) {
-
-        } else if (isFullHouse()) {
+        if (isYahtzee()) {
+            
+        } else if (isLargeStraight()) {
 
         } else if (isSmallStraight()) {
 
-        } else if (isLargeStraight()) {
+        } else if (isFullHouse()) {
+
+        } else if (isFourOfAKind()) {
+
+        } else if (isThreeOfAKind()) {
 
         }
         System.out.println(diceToString());
-        if (isYahtzee()) {
-            System.out.println("You got Yahtzee!");
-        } else {
-            System.out.println("Sorry, better luck next time!");
-        }
     }
 
     public static void rollDice(int[] diceToChange) {
