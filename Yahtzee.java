@@ -124,7 +124,7 @@ public class Yahtzee {
 
     public static boolean isSmallStraight() {
       for (i = 0; i < dice.length - 1; i++;) {
-          
+
       }
     }
 
