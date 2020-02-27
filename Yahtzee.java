@@ -4,24 +4,15 @@ public class Yahtzee {
     static final int NUMBER_OF_DICE = 5;
     static final int NUM_REROLLS = 2;
     static int[] dice = new int[NUMBER_OF_DICE];
-<<<<<<< HEAD
-    Hashtable<String, Integer> scoreCard = new Hashtable <String, Integer>();
-    public static void main(String[] args) {
-        scoreCard.put("yahtzee", 0);
-=======
-    Hashtable <String, Integer> scoreCard = new Hashtable <String, Integer>();
+    static Hashtable<String, Integer> scoreCard = new Hashtable <String, Integer>();
     public static void main(String[] args) {
         scoreCard.put("Yahtzee", 0);
->>>>>>> ce67309924c432269b7b8d6ceacc7ac128345494
         scoreCard.put("threeOfAKind", 0);
         scoreCard.put("fourOfAKind", 0);
         scoreCard.put("fullHouse", 0);
         scoreCard.put("smallStraight", 0);
         scoreCard.put("largeStraight", 0);
-<<<<<<< HEAD
-=======
         scoreCard.put("Chance", 0);
->>>>>>> ce67309924c432269b7b8d6ceacc7ac128345494
         Scanner keyboard = new Scanner(System.in);
         System.out.println("Welcome to the game of Yahtzee!");
         rollDice();
