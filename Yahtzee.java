@@ -4,7 +4,7 @@ public class Yahtzee {
     static final int NUMBER_OF_DICE = 5;
     static final int NUM_REROLLS = 2;
     static int[] dice = new int[NUMBER_OF_DICE];
-    Hashtable <String, Integer> scoreCard = new Hashtable <String, Integer>();
+    static Hashtable<String, Integer> scoreCard = new Hashtable <String, Integer>();
     scoreCard.put("threeOfAKind", 0);
     scoreCard.put("fourOfAKind", 0);
     scoreCard.put("fullHouse", 0);
