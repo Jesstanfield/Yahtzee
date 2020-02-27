@@ -19,7 +19,7 @@ public class Yahtzee {
                 break;
             }
             System.out.println(diceToString());
-            System.out.print("Do you want to reroll? (Y/N): ")
+            System.out.print("Do you want to reroll? (Y/N): ");
             if (keyboard.nextLine() == "Y") {
                 break;
             }
@@ -126,7 +126,7 @@ public class Yahtzee {
     }
 
     public static boolean isThreeOfAKind() {
-        for (i = 0; i < dice.length - 1; i++;) {
+        for (i = 0; i < dice.length - 1; i++) {
         if(dice[i-1] == dice[i] && dice[i] == dice[i+1]) {
             return true;
         }
@@ -135,7 +135,7 @@ public class Yahtzee {
     }
 
     public static boolean isFourOfAKind() {
-        for (i = 0; i < dice.length - 1; i++;) {
+        for (i = 0; i < dice.length - 1; i++) {
         if(dice[i-1] == dice[i] && dice[i] == dice[i+1] && dice[i+1] == dice[i+2]) {
             return true;
         }
@@ -154,24 +154,24 @@ public class Yahtzee {
     }
 
     public static boolean isSmallStraight() {
-      for (i = 0; i < dice.length - 2; i++;) {
+      for (i = 0; i < dice.length - 2; i++) {
           if (dice[i] != dice[i + 1] - 1) {
               boolean bool1 = false;
           }
       }
-      for (i = 1; i < dice.length - 1; i++;) {
+      for (i = 1; i < dice.length - 1; i++) {
           if (dice[i] != dice[i + 1] - 1) {
               boolean bool2 = false;
           }
       }
-      if (bool1 and bool2) {
+      if (bool1 & bool2) {
           return false;
       }
       return true;
     }
 
     public static boolean isLargeStraight() {
-        for (i = 0; i < dice.length - 1; i++;) {
+        for (i = 0; i < dice.length - 1; i++) {
             if (dice[i] != dice[i + 1] - 1) {
                 return false;
             }
