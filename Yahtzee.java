@@ -32,7 +32,7 @@ public class Yahtzee {
         while (true) {
             System.out.println(diceToString());
             if (isYahtzee()) {
-                scoreCard["Yahtzee"] = scoreCard["Yahtzee"] + 50;
+                scoreCard["Yahtzee"] = scoreCard.get("Yahtzee") + 50;
                 System.out.println("Congratulations, you got a Yahtzee that counts for 50 points");
                 break;
             }
@@ -77,7 +77,7 @@ public class Yahtzee {
                 break;
             }
         }
-        int total = scoreCard["Yahtzee"] + scoreCard["largeStraight"] + scoreCard["smallStraight"] + scoreCard["fullHouse"] + scoreCard["fourOfAKind"] + scoreCard["threeOfAKind"] + scoreCard["Chance"];
+        int total = scoreCard.get("Yahtzee") + scoreCard.get("largeStraight") + scoreCard.get("smallStraight") + scoreCard.get("fullHouse") + scoreCard.get("fourOfAKind") + scoreCard.get("threeOfAKind") + scoreCard.get("Chance");
         System.out.println("Your final score was: " + total);
     }
 
@@ -149,7 +149,7 @@ public class Yahtzee {
     }
 
     public static boolean isThreeOfAKind() {
-        for (i = 0; i < dice.length - 1; i++) {
+        for (int i = 0; i < dice.length - 1; i++) {
         if(dice[i-1] == dice[i] && dice[i] == dice[i+1]) {
             return true;
         }
@@ -158,7 +158,7 @@ public class Yahtzee {
     }
 
     public static boolean isFourOfAKind() {
-        for (i = 0; i < dice.length - 1; i++) {
+        for (int i = 0; i < dice.length - 1; i++) {
         if(dice[i-1] == dice[i] && dice[i] == dice[i+1] && dice[i+1] == dice[i+2]) {
             return true;
         }
@@ -167,9 +167,9 @@ public class Yahtzee {
     }
 
     public static boolean isFullHouse() {
-        if (dice[0] == dice[1] && dice[2] == dice[3] == dice[4]) {
+        if (dice[0] == dice[1] && dice[2] == dice[3] && dice[3] == dice[4]) {
             return true;
-        } else if (dice[0] == dice[1] == dice[2] && dice[3] == dice[4]) {
+        } else if (dice[0] == dice[1] && dice[1] == dice[2] && dice[3] == dice[4]) {
             return true;
         } else {
             return false;
@@ -177,14 +177,16 @@ public class Yahtzee {
     }
 
     public static boolean isSmallStraight() {
-      for (i = 0; i < dice.length - 2; i++) {
+        boolean bool1;
+        boolean bool2;
+        for (int i = 0; i < dice.length - 2; i++) {
           if (dice[i] != dice[i + 1] - 1) {
-              boolean bool1 = false;
+              bool1 = false;
           }
       }
-      for (i = 1; i < dice.length - 1; i++) {
+      for (int i = 1; i < dice.length - 1; i++) {
           if (dice[i] != dice[i + 1] - 1) {
-              boolean bool2 = false;
+              bool2 = false;
           }
       }
       if (bool1 & bool2) {
@@ -194,7 +196,7 @@ public class Yahtzee {
     }
 
     public static boolean isLargeStraight() {
-        for (i = 0; i < dice.length - 1; i++) {
+        for (int i = 0; i < dice.length - 1; i++) {
             if (dice[i] != dice[i + 1] - 1) {
                 return false;
             }
