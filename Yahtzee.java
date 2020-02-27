@@ -11,6 +11,7 @@ public class Yahtzee {
     scoreCard.put("fullHouse", 0);
     scoreCard.put("smallStraight", 0);
     scoreCard.put("largeStraight", 0);
+    scoreCard.put("Chance", 0);
     public static void main(String[] args) {
         Scanner keyboard = new Scanner(System.in);
         System.out.println("Welcome to the game of Yahtzee!");
@@ -28,37 +29,56 @@ public class Yahtzee {
             rollDice(convert(keyboard.nextLine()));
         }
         dice = bubbleSort(dice);
-        do {
+        while (true) {
+            System.out.println(diceToString());
             if (isYahtzee()) {
-
+                scoreCard["Yahtzee"] = scoreCard["Yahtzee"] + 50;
+                System.out.println("Congratulations, you got a Yahtzee that counts for 50 points");
+                break;
             }
             if (isLargeStraight()) {
                 if (scoreCard["largeStraight"] == 0) {
                     scoreCard["largeStraight"] = 40;
+                    System.out.println("Congratulations, you got a Large Straight that counts for 40 points");
+                    break;
                 }
             }
             if (isSmallStraight()) {
                 if (scoreCard["smallStraight"] == 0) {
                     scoreCard["smallStraight"] = 30;
+                    System.out.println("Congratulations, you got a Small Straight that counts for 30 points");
+                    break;
                 }
             }
             if (isFullHouse()) {
                 if (scoreCard["fullHouse"] == 0) {
                     scoreCard["fullHouse"] = 25;
+                    System.out.println("Congratulations, you got a Full House that counts for 25 points");
+                    break;
                 }
             }
             if (isFourOfAKind()) {
                 if (scoreCard["fourOfAKind"] == 0) {
                     scoreCard["fourOfAKind"] = sumOfDice();
+                    System.out.println("Congratulations, you got a Four of A Kind that counts for " + sumOfDice() + " points");
+                    break;
                 }
             }
             if (isThreeOfAKind()) {
-                if (scoreCard["fourOfAKind"] == 0) {
-                    scoreCard["fourOfAKind"] = sumOfDice();
+                if (scoreCard["threeOfAKind"] == 0) {
+                    scoreCard["threeOfAKind"] = sumOfDice();
+                    System.out.println("Congratulations, you got a Three of A Kind that counts for " + sumOfDice() + " points");
+                    break;
                 }
             }
-            System.out.println(diceToString());
-        } (while true)
+            if (scoreCard["Chance"] == 0) {
+                scoreCard ["Chance"] = sumOfDice();
+                System.out.println("Congratulations, you got a Chance that counts for " + sumOfDice() + " points");
+                break;
+            }
+        }
+        int total = scoreCard["Yahtzee"] + scoreCard["largeStraight"] + scoreCard["smallStraight"] + scoreCard["fullHouse"] + scoreCard["fourOfAKind"] + scoreCard["threeOfAKind"] + scoreCard["Chance"];
+        System.out.println("Your final score was: " + total);
     }
 
     public static int sumOfDice() {
