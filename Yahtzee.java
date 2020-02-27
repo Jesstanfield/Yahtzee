@@ -4,7 +4,12 @@ public class Yahtzee {
     static final int NUMBER_OF_DICE = 5;
     static final int NUM_REROLLS = 2;
     static int[] dice = new int[NUMBER_OF_DICE];
+<<<<<<< HEAD
     static Hashtable<String, Integer> scoreCard = new Hashtable <String, Integer>();
+=======
+    Hashtable <String, Integer> scoreCard = new Hashtable <String, Integer>();
+    scoreCard.put("Yahtzee", 0);
+>>>>>>> d2a144a453478de7dbdb183a85202ff8d7ce4e60
     scoreCard.put("threeOfAKind", 0);
     scoreCard.put("fourOfAKind", 0);
     scoreCard.put("fullHouse", 0);
@@ -27,35 +32,37 @@ public class Yahtzee {
             rollDice(convert(keyboard.nextLine()));
         }
         dice = bubbleSort(dice);
-        if (isYahtzee()) {
+        do {
+            if (isYahtzee()) {
 
-        }
-        if (isLargeStraight()) {
-            if (scoreCard["largeStraight"] == 0) {
-                scoreCard["largeStraight"] = 40;
             }
-        }
-        if (isSmallStraight()) {
-            if (scoreCard["smallStraight"] == 0) {
-                scoreCard["smallStraight"] = 30;
+            if (isLargeStraight()) {
+                if (scoreCard["largeStraight"] == 0) {
+                    scoreCard["largeStraight"] = 40;
+                }
             }
-        }
-        if (isFullHouse()) {
-            if (scoreCard["fullHouse"] == 0) {
-                scoreCard["fullHouse"] = 25;
+            if (isSmallStraight()) {
+                if (scoreCard["smallStraight"] == 0) {
+                    scoreCard["smallStraight"] = 30;
+                }
             }
-        }
-        if (isFourOfAKind()) {
-            if (scoreCard["fourOfAKind"] == 0) {
-                scoreCard["fourOfAKind"] = sumOfDice();
+            if (isFullHouse()) {
+                if (scoreCard["fullHouse"] == 0) {
+                    scoreCard["fullHouse"] = 25;
+                }
             }
-        }
-        if (isThreeOfAKind()) {
-            if (scoreCard["fourOfAKind"] == 0) {
-                scoreCard["fourOfAKind"] = sumOfDice();
+            if (isFourOfAKind()) {
+                if (scoreCard["fourOfAKind"] == 0) {
+                    scoreCard["fourOfAKind"] = sumOfDice();
+                }
             }
-        }
-        System.out.println(diceToString());
+            if (isThreeOfAKind()) {
+                if (scoreCard["fourOfAKind"] == 0) {
+                    scoreCard["fourOfAKind"] = sumOfDice();
+                }
+            }
+            System.out.println(diceToString());
+        } (while true)
     }
 
     public static int sumOfDice() {
