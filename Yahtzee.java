@@ -4,8 +4,12 @@ public class Yahtzee {
     static final int NUMBER_OF_DICE = 5;
     static final int NUM_REROLLS = 2;
     static int[] dice = new int[NUMBER_OF_DICE];
+<<<<<<< HEAD
+    static Hashtable<String, Integer> scoreCard = new Hashtable <String, Integer>();
+=======
     Hashtable <String, Integer> scoreCard = new Hashtable <String, Integer>();
     scoreCard.put("Yahtzee", 0);
+>>>>>>> d2a144a453478de7dbdb183a85202ff8d7ce4e60
     scoreCard.put("threeOfAKind", 0);
     scoreCard.put("fourOfAKind", 0);
     scoreCard.put("fullHouse", 0);
