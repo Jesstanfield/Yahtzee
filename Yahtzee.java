@@ -22,7 +22,7 @@ public class Yahtzee {
             }
             System.out.println(diceToString());
             System.out.print("Do you want to reroll? (Y/N): ");
-            if (keyboard.nextLine() == "Y") {
+            if (keyboard.nextLine() == "N") {
                 break;
             }
             System.out.print("Which dice do you want to reroll: ");
@@ -32,47 +32,47 @@ public class Yahtzee {
         while (true) {
             System.out.println(diceToString());
             if (isYahtzee()) {
-                scoreCard["Yahtzee"] = scoreCard.get("Yahtzee") + 50;
+                scoreCard.put("Yahtzee", scoreCard.get("Yahtzee") + 50);
                 System.out.println("Congratulations, you got a Yahtzee that counts for 50 points");
                 break;
             }
             if (isLargeStraight()) {
-                if (scoreCard["largeStraight"] == 0) {
-                    scoreCard["largeStraight"] = 40;
+                if (scoreCard.get("largeStraight") == 0) {
+                    scoreCard.put("largeStraight", scoreCard.get("largeStraight") + 40);
                     System.out.println("Congratulations, you got a Large Straight that counts for 40 points");
                     break;
                 }
             }
             if (isSmallStraight()) {
-                if (scoreCard["smallStraight"] == 0) {
-                    scoreCard["smallStraight"] = 30;
+                if (scoreCard.get("smallStraight") == 0) {
+                    scoreCard.put("smallStraight", scoreCard.get("smallStraight") + 30);
                     System.out.println("Congratulations, you got a Small Straight that counts for 30 points");
                     break;
                 }
             }
             if (isFullHouse()) {
-                if (scoreCard["fullHouse"] == 0) {
-                    scoreCard["fullHouse"] = 25;
+                if (scoreCard.get("fullHouse") == 0) {
+                    scoreCard.put("fullHouse", scoreCard.get("fullHouse") + 25);
                     System.out.println("Congratulations, you got a Full House that counts for 25 points");
                     break;
                 }
             }
             if (isFourOfAKind()) {
-                if (scoreCard["fourOfAKind"] == 0) {
-                    scoreCard["fourOfAKind"] = sumOfDice();
+                if (scoreCard.get("fourOfAKind") == 0) {
+                    scoreCard.put("fourOfAKind", scoreCard.get("fourOfAKind") + sumOfDice());
                     System.out.println("Congratulations, you got a Four of A Kind that counts for " + sumOfDice() + " points");
                     break;
                 }
             }
             if (isThreeOfAKind()) {
-                if (scoreCard["threeOfAKind"] == 0) {
-                    scoreCard["threeOfAKind"] = sumOfDice();
+                if (scoreCard.get("threeOfAKind") == 0) {
+                    scoreCard.put("threeOfAKind", scoreCard.get("threeOfAKind") + sumOfDice());
                     System.out.println("Congratulations, you got a Three of A Kind that counts for " + sumOfDice() + " points");
                     break;
                 }
             }
-            if (scoreCard["Chance"] == 0) {
-                scoreCard ["Chance"] = sumOfDice();
+            if (scoreCard.get("Chance") == 0) {
+                scoreCard.put("Chance", scoreCard.get("Chance") + sumOfDice());
                 System.out.println("Congratulations, you got a Chance that counts for " + sumOfDice() + " points");
                 break;
             }
@@ -177,8 +177,8 @@ public class Yahtzee {
     }
 
     public static boolean isSmallStraight() {
-        boolean bool1;
-        boolean bool2;
+        boolean bool1 = true;
+        boolean bool2 = true;
         for (int i = 0; i < dice.length - 2; i++) {
           if (dice[i] != dice[i + 1] - 1) {
               bool1 = false;
@@ -189,10 +189,10 @@ public class Yahtzee {
               bool2 = false;
           }
       }
-      if (bool1 & bool2) {
-          return false;
+      if (bool1 || bool2) {
+          return true;
       }
-      return true;
+      return false;
     }
 
     public static boolean isLargeStraight() {
