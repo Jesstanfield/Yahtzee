@@ -92,8 +92,8 @@ public class Yahtzee {
                     int userChoiceInt = 0;
                     if (scoreCard.get(userChoice) == 0) {
                         userChoiceInt = Integer.parseInt(userChoice);
-                        for (int j : dice) {
-                            if (dice[j - 1] == userChoiceInt) {
+                        for (int value : dice) {
+                            if (value == userChoiceInt) {
                                 numDice += 1;
                             }
                         }
