@@ -16,17 +16,19 @@ public class Yahtzee {
         Scanner keyboard = new Scanner(System.in);
         System.out.println("Welcome to the game of Yahtzee!");
         rollDice();
-        for (int i = 0; i < NUM_REROLLS; i++) {
+        int i = 0;
+        while (i < NUM_REROLLS) {
             if (isYahtzee()) {
                 break;
             }
             System.out.println(diceToString());
-            System.out.print("Do you want to reroll? (Y/N): ");
-            if (keyboard.nextLine() == "N") {
+            System.out.print("Which dice do you want to reroll (press return if none): ");
+            String response = keyboard.nextLine();
+            if (response.isEmpty()) {
                 break;
             }
-            System.out.print("Which dice do you want to reroll: ");
-            rollDice(convert(keyboard.nextLine()));
+            rollDice(convert(response));
+            i++;
         }
         dice = bubbleSort(dice);
         while (true) {
@@ -126,6 +128,7 @@ public class Yahtzee {
     }
 
     public static String diceToString() {
+        dice = bubbleSort(dice);
         String result = "Your dice are: ";
         for (int el : dice) {
             result += el + " ";
@@ -149,8 +152,8 @@ public class Yahtzee {
     }
 
     public static boolean isThreeOfAKind() {
-        for (int i = 0; i < dice.length - 1; i++) {
-        if(dice[i-1] == dice[i] && dice[i] == dice[i+1]) {
+        for (int i = 0; i < 3; i++) {
+        if(dice[i] == dice[i+1] && dice[i+1] == dice[i+2]) {
             return true;
         }
     }
@@ -158,8 +161,8 @@ public class Yahtzee {
     }
 
     public static boolean isFourOfAKind() {
-        for (int i = 0; i < dice.length - 1; i++) {
-        if(dice[i-1] == dice[i] && dice[i] == dice[i+1] && dice[i+1] == dice[i+2]) {
+        for (int i = 0; i < 2; i++) {
+        if(dice[i] == dice[i+1] && dice[i+1] == dice[i+2] && dice[i+2] == dice[i+3]) {
             return true;
         }
     }
