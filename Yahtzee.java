@@ -101,7 +101,9 @@ public class Yahtzee {
                         System.out.println("Please choose a number that has not already been scored.");
                     }
                     scoreCard.put(userChoice, numDice * userChoiceInt);
+                    break;
                 }
+                break;
             }
         }
         int total = scoreCard.get("Yahtzee") + scoreCard.get("largeStraight") + scoreCard.get("smallStraight") + scoreCard.get("fullHouse") + scoreCard.get("fourOfAKind") + scoreCard.get("threeOfAKind") + scoreCard.get("Chance") + scoreCard.get("1") + scoreCard.get("2") + scoreCard.get("3") + scoreCard.get("4") + scoreCard.get("5") + scoreCard.get("6");
