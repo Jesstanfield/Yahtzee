@@ -21,8 +21,8 @@ public class Yahtzee {
         scoreCard.put("6", 0);
         Scanner keyboard = new Scanner(System.in);
         System.out.println("Welcome to the game of Yahtzee!");
-        rollDice();
         for (int h = 0; h < 8; h++) {
+            rollDice();
             int i = 0;
             while (i < NUM_REROLLS) {
                 if (isYahtzee()) {
