@@ -13,6 +13,12 @@ public class Yahtzee {
         scoreCard.put("smallStraight", 0);
         scoreCard.put("largeStraight", 0);
         scoreCard.put("Chance", 0);
+        scoreCard.put("1", 0);
+        scoreCard.put("2", 0);
+        scoreCard.put("3", 0);
+        scoreCard.put("4", 0);
+        scoreCard.put("5", 0);
+        scoreCard.put("6", 0);
         Scanner keyboard = new Scanner(System.in);
         System.out.println("Welcome to the game of Yahtzee!");
         rollDice();
@@ -78,8 +84,25 @@ public class Yahtzee {
                 System.out.println("Congratulations, you got a Chance that counts for " + sumOfDice() + " points");
                 break;
             }
+            while (true) {
+                System.out.println("Which number do you want to score in the upper section? (1, 2, 3, 4, 5, or, 6)");
+                String userChoice = keyboard.nextLine();
+                int numDice = 0;
+                int userChoiceInt = 0;
+                if (scoreCard.get(userChoice) == 0) {
+                    userChoiceInt = Integer.parseInt(userChoice);
+                    for (int j : dice) {
+                        if (dice[j] == userChoiceInt) {
+                            numDice += 1;
+                        }
+                    }
+                } else {
+                    System.out.println("Please choose a number that has not already been scored.");
+                }
+                scoreCard.put(userChoice, numDice * userChoiceInt);
+            }
         }
-        int total = scoreCard.get("Yahtzee") + scoreCard.get("largeStraight") + scoreCard.get("smallStraight") + scoreCard.get("fullHouse") + scoreCard.get("fourOfAKind") + scoreCard.get("threeOfAKind") + scoreCard.get("Chance");
+        int total = scoreCard.get("Yahtzee") + scoreCard.get("largeStraight") + scoreCard.get("smallStraight") + scoreCard.get("fullHouse") + scoreCard.get("fourOfAKind") + scoreCard.get("threeOfAKind") + scoreCard.get("Chance") + scoreCard.get("1") + scoreCard.get("2") + scoreCard.get("3") + scoreCard.get("4") + scoreCard.get("5") + scoreCard.get("6");
         System.out.println("Your final score was: " + total);
     }
 
