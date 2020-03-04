@@ -22,84 +22,86 @@ public class Yahtzee {
         Scanner keyboard = new Scanner(System.in);
         System.out.println("Welcome to the game of Yahtzee!");
         rollDice();
-        int i = 0;
-        while (i < NUM_REROLLS) {
-            if (isYahtzee()) {
-                break;
-            }
-            System.out.println(diceToString());
-            System.out.print("Which dice do you want to reroll (press return if none): ");
-            String response = keyboard.nextLine();
-            if (response.isEmpty()) {
-                break;
-            }
-            rollDice(convert(response));
-            i++;
-        }
-        dice = bubbleSort(dice);
-        while (true) {
-            System.out.println(diceToString());
-            if (isYahtzee()) {
-                scoreCard.put("Yahtzee", scoreCard.get("Yahtzee") + 50);
-                System.out.println("Congratulations, you got a Yahtzee that counts for 50 points");
-                break;
-            }
-            if (isLargeStraight()) {
-                if (scoreCard.get("largeStraight") == 0) {
-                    scoreCard.put("largeStraight", scoreCard.get("largeStraight") + 40);
-                    System.out.println("Congratulations, you got a Large Straight that counts for 40 points");
+        for (int h = 0; h < 8; h++) {
+            int i = 0;
+            while (i < NUM_REROLLS) {
+                if (isYahtzee()) {
                     break;
                 }
-            }
-            if (isSmallStraight()) {
-                if (scoreCard.get("smallStraight") == 0) {
-                    scoreCard.put("smallStraight", scoreCard.get("smallStraight") + 30);
-                    System.out.println("Congratulations, you got a Small Straight that counts for 30 points");
+                System.out.println(diceToString());
+                System.out.print("Which dice do you want to reroll (press return if none): ");
+                String response = keyboard.nextLine();
+                if (response.isEmpty()) {
                     break;
                 }
+                rollDice(convert(response));
+                i++;
             }
-            if (isFullHouse()) {
-                if (scoreCard.get("fullHouse") == 0) {
-                    scoreCard.put("fullHouse", scoreCard.get("fullHouse") + 25);
-                    System.out.println("Congratulations, you got a Full House that counts for 25 points");
-                    break;
-                }
-            }
-            if (isFourOfAKind()) {
-                if (scoreCard.get("fourOfAKind") == 0) {
-                    scoreCard.put("fourOfAKind", scoreCard.get("fourOfAKind") + sumOfDice());
-                    System.out.println("Congratulations, you got a Four of A Kind that counts for " + sumOfDice() + " points");
-                    break;
-                }
-            }
-            if (isThreeOfAKind()) {
-                if (scoreCard.get("threeOfAKind") == 0) {
-                    scoreCard.put("threeOfAKind", scoreCard.get("threeOfAKind") + sumOfDice());
-                    System.out.println("Congratulations, you got a Three of A Kind that counts for " + sumOfDice() + " points");
-                    break;
-                }
-            }
-            if (scoreCard.get("Chance") == 0) {
-                scoreCard.put("Chance", scoreCard.get("Chance") + sumOfDice());
-                System.out.println("Congratulations, you got a Chance that counts for " + sumOfDice() + " points");
-                break;
-            }
+            dice = bubbleSort(dice);
             while (true) {
-                System.out.println("Which number do you want to score in the upper section? (1, 2, 3, 4, 5, or, 6)");
-                String userChoice = keyboard.nextLine();
-                int numDice = 0;
-                int userChoiceInt = 0;
-                if (scoreCard.get(userChoice) == 0) {
-                    userChoiceInt = Integer.parseInt(userChoice);
-                    for (int j : dice) {
-                        if (dice[j] == userChoiceInt) {
-                            numDice += 1;
-                        }
-                    }
-                } else {
-                    System.out.println("Please choose a number that has not already been scored.");
+                System.out.println(diceToString());
+                if (isYahtzee()) {
+                    scoreCard.put("Yahtzee", scoreCard.get("Yahtzee") + 50);
+                    System.out.println("Congratulations, you got a Yahtzee that counts for 50 points");
+                    break;
                 }
-                scoreCard.put(userChoice, numDice * userChoiceInt);
+                if (isLargeStraight()) {
+                    if (scoreCard.get("largeStraight") == 0) {
+                        scoreCard.put("largeStraight", scoreCard.get("largeStraight") + 40);
+                        System.out.println("Congratulations, you got a Large Straight that counts for 40 points");
+                        break;
+                    }
+                }
+                if (isSmallStraight()) {
+                    if (scoreCard.get("smallStraight") == 0) {
+                        scoreCard.put("smallStraight", scoreCard.get("smallStraight") + 30);
+                        System.out.println("Congratulations, you got a Small Straight that counts for 30 points");
+                        break;
+                    }
+                }
+                if (isFullHouse()) {
+                    if (scoreCard.get("fullHouse") == 0) {
+                        scoreCard.put("fullHouse", scoreCard.get("fullHouse") + 25);
+                        System.out.println("Congratulations, you got a Full House that counts for 25 points");
+                        break;
+                    }
+                }
+                if (isFourOfAKind()) {
+                    if (scoreCard.get("fourOfAKind") == 0) {
+                        scoreCard.put("fourOfAKind", scoreCard.get("fourOfAKind") + sumOfDice());
+                        System.out.println("Congratulations, you got a Four of A Kind that counts for " + sumOfDice() + " points");
+                        break;
+                    }
+                }
+                if (isThreeOfAKind()) {
+                    if (scoreCard.get("threeOfAKind") == 0) {
+                        scoreCard.put("threeOfAKind", scoreCard.get("threeOfAKind") + sumOfDice());
+                        System.out.println("Congratulations, you got a Three of A Kind that counts for " + sumOfDice() + " points");
+                        break;
+                    }
+                }
+                if (scoreCard.get("Chance") == 0) {
+                    scoreCard.put("Chance", scoreCard.get("Chance") + sumOfDice());
+                    System.out.println("Congratulations, you got a Chance that counts for " + sumOfDice() + " points");
+                    break;
+                }
+                while (true) {
+                    System.out.println("Which number do you want to score in the upper section? (1, 2, 3, 4, 5, or, 6)");
+                    String userChoice = keyboard.nextLine();
+                    int numDice = 0;
+                    int userChoiceInt = 0;
+                    if (scoreCard.get(userChoice) == 0) {
+                        userChoiceInt = Integer.parseInt(userChoice);
+                        for (int j : dice) {
+                            if (dice[j] == userChoiceInt) {
+                                numDice += 1;
+                            }
+                        }
+                    } else {
+                        System.out.println("Please choose a number that has not already been scored.");
+                    }
+                    scoreCard.put(userChoice, numDice * userChoiceInt);
+                }
             }
         }
         int total = scoreCard.get("Yahtzee") + scoreCard.get("largeStraight") + scoreCard.get("smallStraight") + scoreCard.get("fullHouse") + scoreCard.get("fourOfAKind") + scoreCard.get("threeOfAKind") + scoreCard.get("Chance") + scoreCard.get("1") + scoreCard.get("2") + scoreCard.get("3") + scoreCard.get("4") + scoreCard.get("5") + scoreCard.get("6");
