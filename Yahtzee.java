@@ -23,6 +23,7 @@ public class Yahtzee {
         System.out.println("Welcome to the game of Yahtzee!");
         for (int h = 0; h < 7; h++) {
             rollDice();
+            dice = bubbleSort(dice);
             int i = 0;
             while (i < NUM_REROLLS) {
                 if (isYahtzee()) {
@@ -37,7 +38,6 @@ public class Yahtzee {
                 rollDice(convert(response));
                 i++;
             }
-            dice = bubbleSort(dice);
             while (true) {
                 System.out.println(diceToString());
                 if (isYahtzee()) {
@@ -111,6 +111,10 @@ public class Yahtzee {
         System.out.println("Your final score was: " + total);
     }
 
+    /**
+    * Returns the sum of the dice.
+    * @return sum of the dice.
+    */
     public static int sumOfDice() {
         int sum = 0;
         for (int el : dice) {
@@ -119,22 +123,38 @@ public class Yahtzee {
         return sum;
     }
 
+    /**
+    * Rerolls each die given in an integer array.
+    * @param diceToChange type: int[], the dice that will be rerolled.
+    */
     public static void rollDice(int[] diceToChange) {
         for (int i : diceToChange) {
             dice[i-1] = getRandomDieValue();
         }
     }
 
+    /**
+    * Populates the dice.
+    */
     public static void rollDice() {
         for (int i = 0; i < NUMBER_OF_DICE; i++) {
             dice[i] = getRandomDieValue();
         }
     }
 
+    /**
+    * Returns a random integer ranging from 1 to 6.
+    * @return random integer (1-6)
+    */
     public static int getRandomDieValue() {
         return (int) (Math.random() * 6 + 1);
     }
 
+    /**
+    * Converts a string with integers separated by whitespaace into an integer array.
+    * @param s type: String, consisting of integers separated by whitespace.
+    * @return integer array
+    */
     public static int[] convert(String s) {
         StringTokenizer st = new StringTokenizer(s);
         int[] a = new int[st.countTokens()];
@@ -146,6 +166,10 @@ public class Yahtzee {
         return a;
     }
 
+    /**
+    * Returns a boolean value based on if there was a Yahtzee or not.
+    * @return boolean
+    */
     public static boolean isYahtzee() {
         for (int el : dice) {
             if (el != dice[0]) {
@@ -155,8 +179,11 @@ public class Yahtzee {
         return true;
     }
 
+    /**
+    * Returns a string representation of the dice.
+    * @return boolean
+    */
     public static String diceToString() {
-        dice = bubbleSort(dice);
         String result = "Your dice are: ";
         for (int el : dice) {
             result += el + " ";
@@ -164,6 +191,11 @@ public class Yahtzee {
         return result;
     }
 
+    /**
+    * Returns an integer sorted in ascending numerical order.
+    * @param diceToSort type: int[], the dice that need sorting.
+    * @return boolean
+    */
     public static int[] bubbleSort(int[] diceToSort) {
         int n = diceToSort.length;
         int tempDice = 0;
@@ -179,6 +211,10 @@ public class Yahtzee {
         return diceToSort;
     }
 
+    /**
+    * Returns a boolean value based on if there was a three of a kind or not.
+    * @return boolean
+    */
     public static boolean isThreeOfAKind() {
         for (int i = 0; i < 3; i++) {
         if(dice[i] == dice[i+1] && dice[i+1] == dice[i+2]) {
@@ -188,6 +224,10 @@ public class Yahtzee {
     return false;
     }
 
+    /**
+    * Returns a boolean value based on if there was a four of a kind or not.
+    * @return boolean
+    */
     public static boolean isFourOfAKind() {
         for (int i = 0; i < 2; i++) {
         if(dice[i] == dice[i+1] && dice[i+1] == dice[i+2] && dice[i+2] == dice[i+3]) {
@@ -197,6 +237,10 @@ public class Yahtzee {
     return false;
     }
 
+    /**
+    * Returns a boolean value based on if there was a full house or not.
+    * @return boolean
+    */
     public static boolean isFullHouse() {
         if (dice[0] == dice[1] && dice[2] == dice[3] && dice[3] == dice[4]) {
             return true;
@@ -207,6 +251,10 @@ public class Yahtzee {
         }
     }
 
+    /**
+    * Returns a boolean value based on if there was a small straight or not.
+    * @return boolean
+    */
     public static boolean isSmallStraight() {
         boolean bool1 = true;
         boolean bool2 = true;
@@ -226,6 +274,10 @@ public class Yahtzee {
       return false;
     }
 
+    /**
+    * Returns a boolean value based on if there was a large straight or not.
+    * @return boolean
+    */
     public static boolean isLargeStraight() {
         for (int i = 0; i < dice.length - 1; i++) {
             if (dice[i] != dice[i + 1] - 1) {
