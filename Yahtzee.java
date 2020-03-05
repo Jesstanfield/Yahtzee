@@ -21,7 +21,7 @@ public class Yahtzee {
         scoreCard.put("6", 0);
         Scanner keyboard = new Scanner(System.in);
         System.out.println("Welcome to the game of Yahtzee!");
-        for (int h = 0; h < 8; h++) {
+        for (int h = 0; h < 7; h++) {
             rollDice();
             int i = 0;
             while (i < NUM_REROLLS) {
@@ -97,12 +97,12 @@ public class Yahtzee {
                                 numDice += 1;
                             }
                         }
+                    scoreCard.put(userChoice, numDice * userChoiceInt);
+                    System.out.println("You got " + scoreCard.get(userChoice) + " points");
+                    break;
                     } else {
                         System.out.println("Please choose a number that has not already been scored.");
                     }
-                    scoreCard.put(userChoice, numDice * userChoiceInt);
-                    System.out.println("You got" + scoreCard.get(userChoice) + " points");
-                    break;
                 }
                 break;
             }
