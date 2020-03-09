@@ -286,23 +286,23 @@ public class Yahtzee {
         }
         return true;
     }
-    public static String printGrid() {
+    public static void printGrid() {
         System.out.println("Score Card for Your Game: ");
         System.out.println("| Upper Section | Name           | Score |");
-        System.out.println("|               | Ones           | " + str(scoreCard.get("1")));
-        System.out.println("|               | Twos           | " + str(scoreCard.get("2")));
-        System.out.println("|               | Threes         | " + str(scoreCard.get("3")));
-        System.out.println("|               | Fours          | " + str(scoreCard.get("4")));
-        System.out.println("|               | Fives          | " + str(scoreCard.get("5")));
-        System.out.println("|               | Sixes          | " + str(scoreCard.get("6")));
+        System.out.println("|               | Ones           | " + Integer.toString(scoreCard.get("1")));
+        System.out.println("|               | Twos           | " + Integer.toString(scoreCard.get("2")));
+        System.out.println("|               | Threes         | " + Integer.toString(scoreCard.get("3")));
+        System.out.println("|               | Fours          | " + Integer.toString(scoreCard.get("4")));
+        System.out.println("|               | Fives          | " + Integer.toString(scoreCard.get("5")));
+        System.out.println("|               | Sixes          | " + Integer.toString(scoreCard.get("6")));
         System.out.println("| Lower Section | Name           | Score |");
-        System.out.println("|               | Yahtzee        | " + str(scoreCard.get("Yahtzee")));
-        System.out.println("|               | Large Straight | " + str(scoreCard.get("largeStraight")));
-        System.out.println("|               | Small Straight | " + str(scoreCard.get("smallStraight")));
-        System.out.println("|               | Full House     | " + str(scoreCard.get("fullHouse")));
-        System.out.println("|               | 4 of A Kind    | " + str(scoreCard.get("fourOfAKind")));
-        System.out.println("|               | 3 of A Kind    | " + str(scoreCard.get("threeOfAKind")));
-        System.out.println("|               | Chance         | " + str(scoreCard.get("Chance")));
+        System.out.println("|               | Yahtzee        | " + Integer.toString(scoreCard.get("Yahtzee")));
+        System.out.println("|               | Large Straight | " + Integer.toString(scoreCard.get("largeStraight")));
+        System.out.println("|               | Small Straight | " + Integer.toString(scoreCard.get("smallStraight")));
+        System.out.println("|               | Full House     | " + Integer.toString(scoreCard.get("fullHouse")));
+        System.out.println("|               | 4 of A Kind    | " + Integer.toString(scoreCard.get("fourOfAKind")));
+        System.out.println("|               | 3 of A Kind    | " + Integer.toString(scoreCard.get("threeOfAKind")));
+        System.out.println("|               | Chance         | " + Integer.toString(scoreCard.get("Chance")));
         int total = scoreCard.get("Yahtzee") + scoreCard.get("largeStraight") + scoreCard.get("smallStraight") + scoreCard.get("fullHouse") + scoreCard.get("fourOfAKind") + scoreCard.get("threeOfAKind") + scoreCard.get("Chance") + scoreCard.get("1") + scoreCard.get("2") + scoreCard.get("3") + scoreCard.get("4") + scoreCard.get("5") + scoreCard.get("6");
         System.out.println("Your final score was: " + total);
     }
