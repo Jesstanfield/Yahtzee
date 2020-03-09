@@ -23,7 +23,6 @@ public class Yahtzee {
         System.out.println("Welcome to the game of Yahtzee!");
         for (int h = 0; h < 7; h++) {
             rollDice();
-            dice = bubbleSort(dice);
             int i = 0;
             while (i < NUM_REROLLS) {
                 if (isYahtzee()) {
@@ -184,6 +183,7 @@ public class Yahtzee {
     * @return boolean
     */
     public static String diceToString() {
+        dice = bubbleSort(dice);
         String result = "Your dice are: ";
         for (int el : dice) {
             result += el + " ";
