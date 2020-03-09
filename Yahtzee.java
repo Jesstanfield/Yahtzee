@@ -30,9 +30,12 @@ public class Yahtzee {
                     break;
                 }
                 System.out.println(diceToString());
+                System.out.print("Which dice do you want to reroll (press return if none): ");
+                String response = keyboard.nextLine();
                 if (response.isEmpty()) {
                     break;
                 }
+                rollDice(convert(response));
                 i++;
             }
             while (true) {
