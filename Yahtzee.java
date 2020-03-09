@@ -28,6 +28,7 @@ public class Yahtzee {
                 if (isYahtzee()) {
                     break;
                 }
+                dice = bubbleSort(dice);
                 System.out.println(diceToString());
                 System.out.print("Which dice do you want to reroll (# # #) (press return if none): ");
                 String response = keyboard.nextLine();
