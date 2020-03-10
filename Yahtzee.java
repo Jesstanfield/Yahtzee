@@ -270,8 +270,24 @@ public class Yahtzee {
       }
       if (bool1 || bool2) {
           return true;
-      }
+      } else {
+          int j = 0;
+          int[] newArray = new int[4];
+          for (int i = 0; i < dice.length - 1; i++) {
+              if (dice[i] != dice[i+1]) {
+                  newArray[j] = dice[i];
+                  j++;
+              }
+          }
+          for (int i = 0; i < newArray.length - 1; i++) {
+              if (newArray[i] != newArray[i+1] - 1) {
+                  return false;
+              }
+              }
+          return true;
+          }
       return false;
+      }
     }
 
     /**
