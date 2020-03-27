@@ -256,39 +256,23 @@ public class Yahtzee {
     * @return boolean
     */
     public static boolean isSmallStraight() {
-        boolean bool1 = true;
-        boolean bool2 = true;
-        for (int i = 0; i < dice.length - 2; i++) {
-          if (dice[i] != dice[i + 1] - 1) {
-              bool1 = false;
-          }
-      }
-      for (int i = 1; i < dice.length - 1; i++) {
-          if (dice[i] != dice[i + 1] - 1) {
-              bool2 = false;
-          }
-      }
-      if (bool1 || bool2) {
-          return true;
-      } else {
           int j = 0;
           int[] newArray = new int[4];
-          for (int i = 0; i < dice.length - 1; i++) {
+          for (int i = 0; i < newArray.length; i++) {
               if (dice[i] != dice[i+1]) {
                   newArray[j] = dice[i];
                   j++;
               }
           }
+          newArray[3] = dice[4];
+          System.out.println(Arrays.toString(newArray));
           for (int i = 0; i < newArray.length - 1; i++) {
               if (newArray[i] != newArray[i+1] - 1) {
                   return false;
               }
               }
           return true;
-          }
-      return false;
       }
-    }
 
     /**
     * Returns a boolean value based on if there was a large straight or not.
